@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💘 Valentine's Pack Opening — The Best Pull of My Life</title>
+  <meta name="description"
+    content="A cinematic FIFA Ultimate Team-style Valentine's Day card reveal for the most special person in my life." />
+  <meta property="og:title" content="Valentine's Pack Opening" />
+  <meta property="og:description" content="The Best Pull of My Life — 99 Rated 💘" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       CANVAS — particle / confetti layer
+  ════════════════════════════════════════════ -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ═══════════════════════════════════════════
+       PHASE 1 — CINEMATIC INTRO
+  ════════════════════════════════════════════ -->
+  <section id="intro-screen" class="screen active">
+    <div class="intro-content">
+      <div class="ea-badge">💘 ULTIMATE VALENTINE'S</div>
+      <h1 class="intro-title">PACK <span class="gold">OPENING</span></h1>
+      <p class="intro-subtitle">Something legendary awaits…</p>
+      <button id="open-pack-btn" class="cta-btn" aria-label="Open Pack">
+        <span class="btn-text">TAP TO OPEN PACK</span>
+        <span class="btn-glow"></span>
+      </button>
+    </div>
+    <!-- Ambient floating hearts in intro -->
+    <div class="ambient-hearts" aria-hidden="true">
+      <span class="heart h1">♥</span>
+      <span class="heart h2">♥</span>
+      <span class="heart h3">♥</span>
+      <span class="heart h4">♥</span>
+      <span class="heart h5">♥</span>
+      <span class="heart h6">♥</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PHASE 2 — PACK
+  ════════════════════════════════════════════ -->
+  <section id="pack-screen" class="screen">
+    <div class="pack-wrapper">
+      <div class="pack-card" id="pack-card">
+        <div class="pack-front">
+          <div class="pack-emblem">💘</div>
+          <div class="pack-label">VALENTINE'S<br /><span class="gold">ULTIMATE</span></div>
+          <div class="pack-edition">SPECIAL EDITION</div>
+        </div>
+        <div class="pack-light-rays" id="pack-rays"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PHASE 3 — BUILDUP / RATING FLASH
+  ════════════════════════════════════════════ -->
+  <section id="buildup-screen" class="screen">
+    <div class="buildup-content">
+      <div class="rating-flash" id="rating-flash">
+        <span class="rating-number">99</span>
+      </div>
+      <div class="position-flash" id="position-flash"></div>
+      <div class="flag-flash" id="flag-flash"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PHASE 4 — FULL CARD REVEAL
+  ════════════════════════════════════════════ -->
+  <section id="card-screen" class="screen">
+    <div class="fut-card-wrapper" id="fut-card-wrapper">
+      <div class="fut-card" id="fut-card">
+        <!-- Card background glow -->
+        <div class="card-bg-glow"></div>
+        <!-- Light sweep -->
+        <div class="card-light-sweep"></div>
+
+        <!-- Card inner content -->
+        <div class="card-inner">
+          <!-- Top: Rating + Position -->
+          <div class="card-header">
+            <div class="card-rating" id="card-rating">99</div>
+            <div class="card-position" id="card-position">CDM</div>
+          </div>
+
+          <!-- Player photo area -->
+          <div class="card-photo-area">
+            <div class="card-photo" id="card-photo">
+              <!-- Photo or silhouette -->
+              <div class="photo-silhouette" id="photo-silhouette">
+                <svg viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="60" cy="45" rx="30" ry="35" fill="currentColor" opacity="0.3" />
+                  <ellipse cx="60" cy="120" rx="45" ry="40" fill="currentColor" opacity="0.3" />
+                </svg>
+              </div>
+              <img id="player-img" src="assets/images/Picture.jpeg" alt="Player" class="player-img hidden" />
+            </div>
+          </div>
+
+          <!-- Name -->
+          <div class="card-name" id="card-name">AIMEE</div>
+
+          <!-- Club + Flag row -->
+          <div class="card-meta">
+            <span class="card-flag" id="card-flag-icon">🇮🇳</span>
+            <span class="card-club">♥</span>
+            <span class="card-flag" id="card-flag-icon-2">🇮🇳</span>
+          </div>
+
+          <!-- Stats -->
+          <div class="card-stats" id="card-stats">
+            <div class="stat-col">
+              <div class="stat-item"><span class="stat-val" data-stat="FAT">99</span><span class="stat-label">FAT</span>
+              </div>
+              <div class="stat-item"><span class="stat-val" data-stat="TDY">99</span><span class="stat-label">TDY</span>
+              </div>
+              <div class="stat-item"><span class="stat-val" data-stat="HGT">99</span><span class="stat-label">HGT</span>
+              </div>
+            </div>
+            <div class="stat-col">
+              <div class="stat-item"><span class="stat-val" data-stat="BUNDA">99</span><span
+                  class="stat-label">BUNDA</span></div>
+              <div class="stat-item"><span class="stat-val" data-stat="VAL">99</span><span class="stat-label">VAL</span>
+              </div>
+              <div class="stat-item"><span class="stat-val" data-stat="MUST">99</span><span
+                  class="stat-label">MUST</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Easter egg hint -->
+      <p class="card-hint" id="card-hint">tap the card ♥</p>
+    </div>
+
+    <!-- Continue button -->
+    <button id="continue-btn" class="cta-btn continue-btn">
+      <span class="btn-text">CONTINUE →</span>
+      <span class="btn-glow"></span>
+    </button>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PHASE 5 — ROMANTIC MESSAGE
+  ════════════════════════════════════════════ -->
+  <section id="message-screen" class="screen">
+    <div class="message-content">
+      <div class="message-card-mini" id="message-card-mini">
+        <span class="mini-rating">99</span>
+        <span class="mini-name" id="mini-name">AIMEE</span>
+      </div>
+      <h2 class="message-title" id="message-title">THE GOAT</h2>
+      <p class="message-body" id="message-body">
+        <!-- Filled by JS -->
+      </p>
+      <div class="message-details">
+        <div class="detail-row"><span class="detail-label">Club:</span><span class="detail-value" id="det-club">Kannur
+            FC</span></div>
+        <div class="detail-row"><span class="detail-label">Contract:</span><span class="detail-value">Stuck With Me😉
+            </span></div>
+        <div class="detail-row"><span class="detail-label">Release Clause:</span><span class="detail-value">Ion run it
+          </span></div>
+        <div class="detail-row"><span class="detail-label">Chemistry:</span><span class="detail-value">67% 💕</span>
+        </div>
+      </div>
+      <button id="replay-btn" class="cta-btn replay-btn">
+        <span class="btn-text">OPEN AGAIN ↻</span>
+        <span class="btn-glow"></span>
+      </button>
+    </div>
+    <!-- Floating hearts background -->
+    <div class="ambient-hearts message-hearts" aria-hidden="true">
+      <span class="heart h1">♥</span>
+      <span class="heart h2">♥</span>
+      <span class="heart h3">♥</span>
+      <span class="heart h4">♥</span>
+      <span class="heart h5">♥</span>
+      <span class="heart h6">♥</span>
+      <span class="heart h7">♥</span>
+      <span class="heart h8">♥</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECRET MESSAGE OVERLAY (Easter Egg)
+  ════════════════════════════════════════════ -->
+  <div id="secret-overlay" class="secret-overlay">
+    <div class="secret-content">
+      <p class="secret-emoji">💎</p>
+      <p class="secret-text" id="secret-text">You're my diamond in a world full of bronze cards.</p>
+      <button id="close-secret" class="cta-btn small-btn">
+        <span class="btn-text">CLOSE</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       AUDIO ELEMENTS (user-supplied files)
+  ════════════════════════════════════════════ -->
+  <audio id="audio-buildup" preload="auto">
+    <source src="assets/audio/buildup.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="audio-reveal" preload="auto">
+    <source src="assets/audio/reveal.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="audio-bg" loop preload="auto">
+    <source src="assets/audio/ordinary.mpeg" type="audio/mpeg" />
+  </audio>
+
+  <!-- 🔊 Audio toggle -->
+  <button id="audio-toggle" class="audio-toggle" aria-label="Toggle Music">🔇</button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
